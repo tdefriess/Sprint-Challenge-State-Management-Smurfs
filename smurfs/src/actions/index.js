@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_DATA = 'FETCH_DATA';
 export const UPDATE_SMURFS = 'UPDATE_SMURFS';
+export const POST_DATA = 'POST_DATA';
 export const getData = () => dispatch => {
     dispatch({type: FETCH_DATA});
     axios
@@ -15,6 +16,19 @@ export const getData = () => dispatch => {
         });
 }
 
-export const addSmurf = smurf => {
-    return
+export const postData = (smurf) => {
+    console.log(smurf);
+    axios
+        .post(`http://localhost:3333/smurfs`, {
+            name: smurf.name,
+            age: smurf.age,
+            height: smurf.height,
+            id: smurf.id
+        })
+        .then(res => {
+            console.log('Response: ', res);
+        })
+        .catch(err => {
+            console.log('Error submitting data', err);
+        });
 }

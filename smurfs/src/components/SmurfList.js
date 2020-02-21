@@ -13,6 +13,15 @@ function SmurfList(props){
             {props.isFetchingData === true ?
             <div>Fetching data from the server...</div> :
             <button onClick={handleGetData}>Get Smurfs</button>}
+            <div>
+                {props.smurfs.map(smurf =>
+                    <div key={smurf.id}>
+                        <h3>{smurf.name}</h3>
+                        <p>{smurf.age}</p>
+                        <p>{smurf.height}</p>
+                    </div>
+                )}
+            </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import { FETCH_DATA, UPDATE_SMURFS } from '../actions';
+import { FETCH_DATA, UPDATE_SMURFS, POST_DATA } from '../actions';
 
 const initialState = {
     smurfs: [],
@@ -23,6 +23,12 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 smurfs: action.payload,
                 isFetchingData: false
+            }
+        case POST_DATA:
+            console.log('Posting data...');
+            return {
+                ...state,
+                isPostingData: true
             }
         default:
             return state;
