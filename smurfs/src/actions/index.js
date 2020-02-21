@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_DATA = 'FETCH_DATA';
 export const UPDATE_SMURFS = 'UPDATE_SMURFS';
 export const POST_DATA = 'POST_DATA';
+export const POST_SUCCESS = 'POST_SUCCESS';
 export const getData = () => dispatch => {
     dispatch({type: FETCH_DATA});
     axios
@@ -17,7 +18,7 @@ export const getData = () => dispatch => {
 }
 
 export const postData = (smurf) => {
-    console.log(smurf);
+    console.log(smurf);    
     axios
         .post(`http://localhost:3333/smurfs`, {
             name: smurf.name,
@@ -32,3 +33,15 @@ export const postData = (smurf) => {
             console.log('Error submitting data', err);
         });
 }
+
+// export const deleteSmurf = (id) => {
+//     console.log('Deleting smurf...');
+//     axios
+//         .delete(`http://localhost:3333/smurfs/${id}`)
+//         .then(res => {
+//             console.log('Deleted', res);
+//         })
+//         .catch(err => {
+//             console.log('Error deleting smurf', err)
+//         })
+// }

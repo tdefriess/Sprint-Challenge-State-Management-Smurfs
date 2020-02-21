@@ -1,4 +1,4 @@
-import { FETCH_DATA, UPDATE_SMURFS, POST_DATA } from '../actions';
+import { FETCH_DATA, UPDATE_SMURFS, POST_DATA, POST_SUCCESS } from '../actions';
 
 const initialState = {
     smurfs: [],
@@ -29,6 +29,13 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isPostingData: true
+            }
+        case POST_SUCCESS:
+            console.log('Post success...');
+            return {
+                ...state,
+                isPostingData: false,
+                smurfs: action.payload
             }
         default:
             return state;

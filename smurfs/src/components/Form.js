@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { postData } from '../actions';
+import { postData, POST_DATA } from '../actions';
 
-class Form extends React.Component {
+class Form extends React.Component {    
     state = {
         name : '',
         age : '',
         height : ''
-    };
+    };    
 
     handleNameChanges = e => {
         this.setState({ name: e.target.value });
@@ -20,13 +20,12 @@ class Form extends React.Component {
     };
 
     handleSubmit = e => {
+        console.log(this.props);
         e.preventDefault();
-        const newID = Date.now();
-        const newSmurf = {
+            const newSmurf = {
             name: this.state.name,
             age: this.state.age,
             height: this.state.height,
-            id: newID
         };
         postData(newSmurf);
     };

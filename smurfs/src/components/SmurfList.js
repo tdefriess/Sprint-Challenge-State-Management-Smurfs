@@ -8,6 +8,10 @@ function SmurfList(props){
         e.preventDefault();
         props.getData();
     }
+    const handleDelete = e => {
+        
+        props.deleteSmurf();
+    }
     return (
         <div>
             {props.isFetchingData === true ?
@@ -17,8 +21,9 @@ function SmurfList(props){
                 {props.smurfs.map(smurf =>
                     <div key={smurf.id}>
                         <h3>{smurf.name}</h3>
-                        <p>{smurf.age}</p>
-                        <p>{smurf.height}</p>
+                        <p>{`Age: ${smurf.age}`}</p>
+                        <p>{`Height: ${smurf.height}`}</p>
+                        {/* <p onClick={handleDelete(smurf.id)}>x</p> */}
                     </div>
                 )}
             </div>
